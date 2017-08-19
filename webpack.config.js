@@ -1,6 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function getFilename(name, ext) {
+    return `${name}.${ext}`;
+}
+
+function getStyleLoader(use) {
+    const useArray = Array.isArray(use) ? use : [use];
+    return ['style-loader'].concat(useArray);
+}
 
 const app = ['./app/main.jsx'];
 
@@ -17,8 +25,8 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'build'),
-        filename: "bundle.js",
-        publicPath: "http://redux-scaffold:3001/"
+        filename: getFilename('[name]', 'js'),
+        publicPath: "http://localhost:3001/"
     },
     resolve: {
         extensions: [
@@ -38,6 +46,20 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 include: path.join(__dirname, 'app')
+            },
+            {
+                test: /\.s?css$/,
+                exclude: [/draft-js/],
+                use: getStyleLoader([
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            importLoaders: 1,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    }
+                ])
             }
         ]
     }
