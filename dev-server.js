@@ -8,8 +8,6 @@ const compiler = webpack(config);
 compiler.apply(new DashboardPlugin());
 
 new WebpackDevServer(compiler, {
-    publicPath: config.output.publicPath,
-    contentBase: config.output.path,
     stats: {
         colors: true
     }
