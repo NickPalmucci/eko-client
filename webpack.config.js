@@ -14,7 +14,7 @@ const app = ['./app/main.jsx'];
 
 let plugins = [
   new HtmlWebpackPlugin({
-      name: 'redux-scaffold',
+      name: 'eko-client',
       template: 'index.html'
   })
 ];
@@ -58,7 +58,8 @@ module.exports = {
                             importLoaders: 1,
                             localIdentName: '[name]__[local]___[hash:base64:5]'
                         }
-                    }
+                    },
+                    'postcss-loader'
                 ])
             }
         ]
