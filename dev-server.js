@@ -8,6 +8,7 @@ const compiler = webpack(config);
 compiler.apply(new DashboardPlugin());
 
 new WebpackDevServer(compiler, {
+    historyApiFallback: true,
     stats: {
         colors: true
     }
