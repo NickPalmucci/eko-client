@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import {Provider} from 'react-redux';
 import {Fragment} from 'redux-little-router';
-import Example from '../content/example/example-container';
+import AppLayout from './app-layout';
+
 
 export default class Root extends React.Component {
     static propTypes = {
@@ -13,10 +14,7 @@ export default class Root extends React.Component {
         return (
             <Provider store={store}>
                 <Fragment forRoute="/">
-                    <div>
-                        <Fragment forRoute="/"><Example/></Fragment>
-                        <Fragment forRoute="/other-page"><div>Other Page</div></Fragment>
-                    </div>
+                  <AppLayout/>
                 </Fragment>
             </Provider>
         );
