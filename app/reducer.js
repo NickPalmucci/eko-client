@@ -1,26 +1,13 @@
-export default function exampleReducer(initialState, action) {
-    if (initialState) {
-        let count = initialState.count;
-        const addCount = count+1;
-        const minCount = count-1;
+import jobData from './sample-data.json';
 
-        if (action.type === 'CLICK') {
+export default function exampleReducer(state, action) {
+    if (state) {
+        if (action.type === 'VIEW_JOB') {
+            const active = state.jobData.jobList[action.selected];
             return {
-                clicked: !initialState.clicked,
-                count: initialState.count
+                ...state,
+                selectedJob: active
             }
-        }
-        if (action.type === 'ADD_COUNT') {
-            return {
-                clicked: initialState.clicked,
-                count: addCount || 0
-            }
-        }
-        if (action.type === 'MINUS_COUNT') {
-            return {
-                clicked: initialState.clicked,
-                count: minCount || 0
-            }
-        } else return null
-    } else return {clicked: false, count:0}
+        } else return state
+    } else return {jobData: jobData}
 };
