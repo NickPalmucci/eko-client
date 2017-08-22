@@ -1,0 +1,20 @@
+import React from 'react';
+import Card from 'react-toolbox/lib/card';
+import Application from '../job-application/job-application';
+
+export default function JobDetail({job}) {
+const {name, position, location, description} = job;
+
+    return (
+        <Card>
+            <div style={{padding: '4rem 4rem 0'}}>
+                <h1>{name}</h1>
+                <h2>{position}</h2>
+                <h3>{location}</h3>
+                <p>{description}</p>
+            </div>
+
+            <Application/>
+        </Card>
+    )
+}
