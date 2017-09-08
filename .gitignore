@@ -1,6 +1,8 @@
 # dependencies
+.gitignore
 node_modules
 yarn.lock
 
 # IDE
-.idea/
+.idea
+redux-scaffold.iml
