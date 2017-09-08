@@ -4,3 +4,9 @@ export function select(id) {
         selected: id
     };
 }
+
+export function getJobs() {
+    return {
+        type: 'GET_JOBS_REQUESTED'
+    };
+}
