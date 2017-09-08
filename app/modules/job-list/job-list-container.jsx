@@ -1,16 +1,17 @@
 import {connect} from 'react-redux';
-import * as actions from '../actions';
+import { select } from '../actions';
 import {push} from 'redux-little-router';
 import JobList from './job-list';
 
 const mapStateToProps = state => {
+    const jobList = state.appReducer.ekoList || state.appReducer.jobList || [];
     return {
-        jobList: state.appReducer.jobData.jobList,
+        jobList: jobList,
     }
 };
 
 const listActions = {
-    ...actions,
+    select,
     push
 };
 

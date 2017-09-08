@@ -1,14 +1,13 @@
 import React from 'react';
-import Layout from 'react-toolbox/lib/layout';
 import {Card, CardTitle} from 'react-toolbox/lib/card';
 import { List, ListItem, ListSubHeader } from 'react-toolbox/lib/list';
 
 export default function JobList({jobList, select, push}) {
 
-    const generateList = jobList => {
+    const generateList = list => {
         let items = [];
-        for (let i = 0; i < jobList.length; i++) {
-            let data = jobList[i];
+        for (let i = 0; i < list.length; i++) {
+            let data = list[i];
 
             const handleClick = () => {
                 select(i);
@@ -18,8 +17,8 @@ export default function JobList({jobList, select, push}) {
             items[i] = (
                 <ListItem
                     key={i}
-                    caption={data.position}
-                    legend={data.name}
+                    caption={data.description}
+                    legend={data.location}
                     onClick={handleClick}
                     rightIcon="create"
                 />
@@ -28,7 +27,7 @@ export default function JobList({jobList, select, push}) {
         return items;
     };
 
-    const list = generateList(jobList);
+    const jobs = generateList(jobList);
 
     return(
         <Card style={{padding: '2rem'}}>
@@ -36,7 +35,7 @@ export default function JobList({jobList, select, push}) {
                 <CardTitle title="Teaching Postions Hiring Now" subtitle="New York City Area"/>
             </div>
             <List selectable ripple>
-                {list}
+                {jobs}
             </List>
         </Card>
     )
