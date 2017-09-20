@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, CardTitle} from 'react-toolbox/lib/card';
-import { List, ListItem, ListSubHeader } from 'react-toolbox/lib/list';
+import { List, ListItem } from 'react-toolbox/lib/list';
 
 export default function JobList({jobList, select, push}) {
 

@@ -15,3 +15,20 @@ export function getJobs() {
         })
 
 }
+
+export function submitApplication(payload) {
+    return axios({
+        method: 'post',
+        url:'http://localhost:8000/applications/',
+        responseType: 'json',
+        data: payload,
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        }
+    })
+        .catch(function (error) {
+            return error
+        })
+
+}
