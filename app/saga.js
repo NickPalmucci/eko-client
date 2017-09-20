@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { getJobs } from './modules/api';
+import { getJobs, submitApplication } from './modules/api';
 
 function * getJobsList(action) {
     try {
@@ -10,6 +10,18 @@ function * getJobsList(action) {
     }
 }
 
+function * submitHandler(action) {
+    try {
+        const applicationStatus = yield call(submitApplication, action.payload);
+        if (applicationStatus) {
+            yield put({type: 'SUBMIT_SUCCESS', message: applicationStatus.message})
+        }
+    }catch(e) {
+        yield put({type: 'SUBMIT_FAILED', message: e.message})
+    }
+}
+
 export default function * rootSaga() {
-    yield takeLatest('GET_JOBS_REQUESTED', getJobsList)
+    yield takeLatest('GET_JOBS_REQUESTED', getJobsList);
+    yield takeLatest('SUBMIT_REQUESTED', submitHandler);
 }
