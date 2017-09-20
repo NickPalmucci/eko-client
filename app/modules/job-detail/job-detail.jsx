@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-toolbox/lib/card';
-import Application from '../job-application/job-application';
+import Application from '../job-application/job-application-container';
 
 export default function JobDetail({job}) {
 const {id, created, location, description} = job;
