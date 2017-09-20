@@ -3,6 +3,7 @@ import Layout from 'react-toolbox/lib/layout';
 import AppBar from 'react-toolbox/lib/app_bar';
 import JobList from '../modules/job-list/job-list-container';
 import JobDetail from '../modules/job-detail/job-detail-container';
+import Error from '../modules/error-message/error-container'
 import {Fragment} from 'redux-little-router';
 import {push} from 'redux-little-router';
 import {connect} from 'react-redux';
@@ -23,6 +24,7 @@ function AppLayout({push}) {
                 <AppBar title={<Giraldi/>} leftIcon='assessment' onLeftIconClick={handleClick}/>
                 <Fragment forRoute="/"><JobList/></Fragment>
                 <Fragment forRoute="/job-details"><JobDetail/></Fragment>
+               <Error/>
             </Layout>
         </div>
     )
