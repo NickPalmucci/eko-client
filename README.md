@@ -1,5 +1,3 @@
-# Yo Nate
-
 to run this locally just enter
 
 `yarn install`
