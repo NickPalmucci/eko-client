@@ -1,8 +1,0 @@
-# dependencies
-.gitignore
-node_modules
-yarn.lock
-
-# IDE
-.idea
-redux-scaffold.iml
